@@ -51,5 +51,14 @@ public class LoginStep {
     }
 
 
+    @And("^I enter ([^\"]*) and ([^\"]*)$")
+    public void iEnterUsernameAndPassword(String username, String password) {
+        System.out.println("UserName is :  " + username);
+        System.out.println("Password is :  " + password);
+    }
+
+
+
+
 
 }
