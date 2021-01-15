@@ -1,5 +1,6 @@
 package Steps;
 
+import Base.BaseUtil;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -8,7 +9,13 @@ import io.cucumber.java.en.Then;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoginStep {
+public class LoginStep extends BaseUtil {
+    private BaseUtil base;
+
+    public LoginStep(BaseUtil base) {
+        this.base = base;
+    }
+
     @Given("I navigate to the login page")
     public void iNavigateToTheLoginPage() {
         System.out.println("Navigate Login Page ");
@@ -21,6 +28,7 @@ public class LoginStep {
 
     @Then("I should see the userform page")
     public void iShouldSeeTheUserformPage() {
+        System.out.println("The drive is : " + base.StepInfo);
         System.out.println("I should see userform page");
     }
 
@@ -56,9 +64,6 @@ public class LoginStep {
         System.out.println("UserName is :  " + username);
         System.out.println("Password is :  " + password);
     }
-
-
-
 
 
 }

@@ -1,13 +1,25 @@
 package Steps;
 
+import Base.BaseUtil;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
-public class Hooks {
+public class Hook extends BaseUtil {
+    //Una variable/propiedad de la clase Hook
+    private BaseUtil base;
+
+    //Inyeccion de dependencia
+    public Hook(BaseUtil base) {
+        this.base = base;
+    }
+
     @Before
     public void InitializeTEst() {
+
         System.out.println("Opening the browser : MOCK");
+        //Passing a dummy WebDriver instance
+        base.StepInfo = "FireforDriver";
     }
 
     @After

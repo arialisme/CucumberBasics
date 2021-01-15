@@ -24,5 +24,7 @@
     <orderEntry type="library" name="Maven: io.cucumber:html-formatter:9.0.0" level="project" />
     <orderEntry type="library" name="Maven: io.cucumber:create-meta:2.0.4" level="project" />
     <orderEntry type="library" name="Maven: org.apiguardian:apiguardian-api:1.1.0" level="project" />
+    <orderEntry type="library" name="Maven: io.cucumber:cucumber-picocontainer:6.9.1" level="project" />
+    <orderEntry type="library" name="Maven: org.picocontainer:picocontainer:2.15" level="project" />
   </component>
 </module>
