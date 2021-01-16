@@ -2,12 +2,15 @@ package Steps;
 
 import Base.BaseUtil;
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.DataTableType;
+import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class LoginStep extends BaseUtil {
     private BaseUtil base;
@@ -32,18 +35,16 @@ public class LoginStep extends BaseUtil {
         System.out.println("I should see userform page");
     }
 
+    @DataTableType
+    public User authorEntry(Map<String, String> entry) {
+        return new User(
+                entry.get("username"),
+                entry.get("password")
+                );
+    }
 
     @And("I enter the following for Login")
-    public void iEnterTheFollowingForLogin(DataTable table) {
-       /* List<List<String>> data = table.cells();
-
-        System.out.println("This Value is: " + data.get(0).get(0));
-        System.out.println("This Value is: " + data.get(0).get(1));*/
-
-        //Create an ArrayList
-        List<User> users = new ArrayList<User>();
-        //Store all the users
-        users = table.asList(User.class);
+    public void iEnterTheFollowingForLogin( List<User> users) {
 
         for (User user : users
         ) {
@@ -65,5 +66,23 @@ public class LoginStep extends BaseUtil {
         System.out.println("Password is :  " + password);
     }
 
-
+    @ParameterType("[^\"]*")
+    public String getEmail(String username){
+        return username.concat("@ea.com");
+    }
+    @And("I enter the users email address as Email: {getEmail}")
+    public void iEnterTheUsersEmailAddressAsEmailAdmin(String email)
+    {
+        System.out.println("The Email Addres is " + email);
+    }
+    @ParameterType("\\d+")
+    public int salaryTransform(String salary){
+        return salary.length();
+    }
+    @And("I verify the count of my salary digits for Rs {salaryTransform}")
+    public void iVerifyTheCountOfMySalaryDigitsForRs(int salary) {
+        System.out.println("My Salary digits count is : " + salary);
+    }
 }
+
+
