@@ -7,8 +7,6 @@ import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -22,6 +20,7 @@ public class LoginStep extends BaseUtil {
     @Given("I navigate to the login page")
     public void iNavigateToTheLoginPage() {
         System.out.println("Navigate Login Page ");
+       base.Driver.navigate().to("http://www.executeautomation.com/demosite/Login.html");
     }
 
     @And("I click login button")
@@ -31,7 +30,7 @@ public class LoginStep extends BaseUtil {
 
     @Then("I should see the userform page")
     public void iShouldSeeTheUserformPage() {
-        System.out.println("The drive is : " + base.StepInfo);
+
         System.out.println("I should see userform page");
     }
 
