@@ -9,6 +9,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import pages.Login;
 
 import java.util.List;
 import java.util.Map;
@@ -28,7 +29,11 @@ public class LoginStep extends BaseUtil {
 
     @And("I click login button")
     public void iClickLoginButton() {
+        Login page = new Login(base.Driver);
+        page.ClickLogin();
+        /*
         base.Driver.findElement(By.name("Login")).submit();
+        */
     }
 
     @Then("I should see the userform page")
@@ -48,10 +53,15 @@ public class LoginStep extends BaseUtil {
     @And("I enter the following for Login")
     public void iEnterTheFollowingForLogin(List<User> users) {
 
+
+        Login page = new Login(base.Driver);
         for (User user : users
         ) {
+            page.Login(user.username, user.password);
+            /*
             base.Driver.findElement(By.name("UserName")).sendKeys(user.username);
             base.Driver.findElement(By.name("Password")).sendKeys(user.password);
+            */
         }
 
     }
