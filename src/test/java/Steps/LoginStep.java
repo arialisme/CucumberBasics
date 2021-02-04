@@ -97,6 +97,11 @@ public class LoginStep extends BaseUtil {
     public void iVerifyTheCountOfMySalaryDigitsForRs(int salary) {
         System.out.println("My Salary digits count is : " + salary);
     }
+
+    @Then("I should see the userform page wrongly")
+    public void iShouldSeeTheUserformPageWrongly() {
+        Assert.assertEquals("Its not displayed", base.Driver.findElement(By.id("Test de error")).isDisplayed(), true);
+    }
 }
 
 

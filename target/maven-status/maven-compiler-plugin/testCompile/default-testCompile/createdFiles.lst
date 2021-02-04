@@ -2,4 +2,5 @@ Steps\User.class
 Base\BaseUtil.class
 Steps\LoginStep.class
 pages\Login.class
+runner\TestRunner.class
 Steps\Hook.class
